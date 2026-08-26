@@ -25,7 +25,8 @@ export const viewport: Viewport = {
   themeColor: '#05060f',
 }
 
-import ColorBends from '@/components/ColorBends'
+import dynamic from 'next/dynamic'
+const ColorBends = dynamic(() => import('@/components/ColorBends'), { ssr: false })
 import { NavBar } from '@/components/nav-bar'
 import { ContactFooter } from '@/components/contact-footer'
 import { PageTransition } from '@/components/page-transition'

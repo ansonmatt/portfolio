@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, MouseEvent, useRef } from 'react'
+import { useState, MouseEvent, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate, useScroll, useTransform } from 'framer-motion'
 import { Briefcase, GraduationCap, HeartHandshake } from 'lucide-react'
 
@@ -114,7 +114,7 @@ const experienceData = [
   }
 ]
 
-const filters = ["All", "Work", "Ambassadorship", "Volunteering"]
+// Base filters defined dynamically based on screen size in component
 
 export function Experience() {
   const [activeFilter, setActiveFilter] = useState("All")
@@ -125,11 +125,32 @@ export function Experience() {
     offset: ["start 75%", "end 50%"],
   })
 
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const filters = isMobile ? ["All", "Work", "Other"] : ["All", "Work", "Ambassadorship", "Volunteering"]
+
+  useEffect(() => {
+    if (isMobile && (activeFilter === "Ambassadorship" || activeFilter === "Volunteering")) {
+      setActiveFilter("Other")
+    } else if (!isMobile && activeFilter === "Other") {
+      setActiveFilter("All")
+    }
+  }, [isMobile, activeFilter])
+
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
-  const filteredData = experienceData.filter(
-    (section) => activeFilter === "All" || section.filter === activeFilter
-  )
+  const filteredData = experienceData.filter((section) => {
+    if (activeFilter === "All") return true
+    if (activeFilter === "Other") return section.filter === "Ambassadorship" || section.filter === "Volunteering"
+    return section.filter === activeFilter
+  })
 
   return (
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-12 md:py-20 border-t border-border/10">

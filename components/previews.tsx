@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import { Tilt3D } from '@/components/tilt-3d'
+import dynamic from 'next/dynamic'
+
+const Tilt3D = dynamic(() => import('@/components/tilt-3d').then(mod => mod.Tilt3D), { ssr: false })
 
 const Github = (props: React.SVGProps<SVGSVGElement>) => (
   <svg

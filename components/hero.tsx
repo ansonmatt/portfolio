@@ -239,8 +239,8 @@ export function Hero() {
                       </div>
                     </div>
                     <div className="min-w-0">
-                      <div className="font-mono text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest mb-1 sm:mb-2">Experience</div>
-                      <div className="font-medium text-[13px] sm:text-sm lg:text-base font-mono truncate">2+ Years</div>
+                      <div className="font-mono text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest mb-1 sm:mb-2">Projects</div>
+                      <div className="font-medium text-[13px] sm:text-sm lg:text-base font-mono truncate">5+ AI Projects</div>
                     </div>
                   </div>
                 </motion.div>

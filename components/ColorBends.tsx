@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const MAX_COLORS = 8;
@@ -153,7 +153,18 @@ export default function ColorBends({
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
   const pointerSmoothRef = useRef(8);
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+    
     const container = containerRef.current;
     if (!container) return;
     
@@ -260,9 +271,11 @@ export default function ColorBends({
         container.removeChild(renderer.domElement);
       }
     };
-  }, [bandWidth, frequency, intensity, iterations, mouseInfluence, noise, parallax, scale, speed, transparent, warpStrength]);
+  }, [isMobile, bandWidth, frequency, intensity, iterations, mouseInfluence, noise, parallax, scale, speed, transparent, warpStrength]);
 
   useEffect(() => {
+    if (isMobile) return;
+    
     const material = materialRef.current;
     const renderer = rendererRef.current;
     if (!material) return;
@@ -317,6 +330,8 @@ export default function ColorBends({
   ]);
 
   useEffect(() => {
+    if (isMobile) return;
+    
     const material = materialRef.current;
     const container = containerRef.current;
     if (!material || !container) return;
@@ -332,7 +347,19 @@ export default function ColorBends({
     return () => {
       window.removeEventListener('pointermove', handlePointerMove);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    return (
+      <div 
+        className={`relative w-full h-full overflow-hidden ${className}`} 
+        style={{
+          ...style,
+          background: 'radial-gradient(ellipse at top left, rgba(38,45,218,0.15) 0%, rgba(33,127,146,0.05) 50%, rgba(8,0,58,0) 100%)'
+        }} 
+      />
+    );
+  }
 
   return <div ref={containerRef} className={`relative w-full h-full overflow-hidden ${className}`} style={style} />;
 }
