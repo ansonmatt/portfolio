@@ -113,8 +113,8 @@ export function Hero() {
                 </div>
                 <div className="h-8 w-px bg-border" />
                 <div>
-                  <div className="text-xl font-semibold text-foreground sm:text-2xl">2+</div>
-                  <div className="mt-1">Years Exp.</div>
+                  <div className="text-xl font-semibold text-foreground sm:text-2xl">5+</div>
+                  <div className="mt-1">Projects</div>
                 </div>
               </div>
             </motion.div>
