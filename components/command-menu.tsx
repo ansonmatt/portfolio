@@ -55,6 +55,17 @@ export function CommandMenu({ isOpen, setIsOpen }: CommandMenuProps) {
     setIsOpen(false)
     if (href.endsWith('.pdf') || href.startsWith('http')) {
       window.open(href, '_blank')
+    } else if (href.startsWith('/#') && window.location.pathname === '/') {
+      const id = href.replace('/#', '')
+      if (id === 'hero') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+      window.history.pushState(null, '', '/')
     } else {
       router.push(href)
     }

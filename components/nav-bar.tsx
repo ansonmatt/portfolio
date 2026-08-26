@@ -59,6 +59,22 @@ export function NavBar() {
     }
   }, [])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (pathname === '/' && href.startsWith('/#')) {
+      e.preventDefault()
+      const id = href.substring(2)
+      if (id === 'hero') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+      window.history.pushState(null, '', '/')
+    }
+  }
+
   return (
     <>
       <CommandMenu isOpen={commandMenuOpen} setIsOpen={setCommandMenuOpen} />
@@ -74,6 +90,7 @@ export function NavBar() {
       />
       <Link
         href="/#hero"
+        onClick={(e) => handleNavClick(e, '/#hero')}
         className={`relative flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 font-serif text-sm sm:text-lg tracking-tight rounded-full transition-colors ${pathname === '/' && activeSection === 'hero' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
           }`}
       >
@@ -94,6 +111,7 @@ export function NavBar() {
             <Link
               key={l.label}
               href={l.href}
+              onClick={(e) => handleNavClick(e, l.href)}
               className={`relative rounded-full px-2.5 py-1.5 text-[11px] sm:px-4 sm:py-2 sm:text-sm transition-colors ${
                 l.hideOnMobile ? 'hidden sm:block ' : ''
               }${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
@@ -121,6 +139,7 @@ export function NavBar() {
         </button>
         <a
           href="#contact"
+          onClick={(e) => handleNavClick(e as any, '/#contact')}
           className="relative ml-0.5 sm:ml-1 inline-flex overflow-hidden rounded-full bg-foreground px-3 py-1.5 text-[11px] sm:px-4 sm:py-2 sm:text-sm font-medium transition-transform duration-300 hover:-translate-y-0.5"
         >
           <motion.div
