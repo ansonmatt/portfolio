@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Search } from 'lucide-react'
 import { CommandMenu } from './command-menu'
@@ -15,6 +15,7 @@ const links = [
 
 export function NavBar() {
   const pathname = usePathname()
+  const router = useRouter()
   const [activeSection, setActiveSection] = useState('hero')
   const [commandMenuOpen, setCommandMenuOpen] = useState(false)
   const { scrollY } = useScroll()
@@ -71,7 +72,7 @@ export function NavBar() {
           element.scrollIntoView({ behavior: 'smooth' })
         }
       }
-      window.history.pushState(null, '', '/')
+      router.replace('/', { scroll: false })
     }
   }
 

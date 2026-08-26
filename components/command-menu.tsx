@@ -65,7 +65,7 @@ export function CommandMenu({ isOpen, setIsOpen }: CommandMenuProps) {
           element.scrollIntoView({ behavior: 'smooth' })
         }
       }
-      window.history.pushState(null, '', '/')
+      router.replace('/', { scroll: false })
     } else {
       router.push(href)
     }
