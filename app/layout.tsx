@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description:
     'Portfolio of Anson Mathew Allan, Computer Science Engineering and Artificial Intelligence',
   generator: 'ansonmatt',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export const viewport: Viewport = {
