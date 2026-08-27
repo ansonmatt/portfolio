@@ -45,14 +45,13 @@ const experienceData = [
     icon: <Briefcase className="w-5 h-5 text-brand" />,
     items: [
       {
-        title: "AIML Intern",
+        title: "Machine Learning Intern",
         organization: "Bharat Electronics Limited (BEL)",
-        description: "Built a robust AI Intrusion Detection System capable of:",
         bullets: [
-          "Detecting and tracking people using computer vision models.",
-          "Running efficiently on live video and CCTV footage.",
-          "Monitoring restricted areas and triggering alerts when a boundary is crossed.",
-          "Utilizing a custom trained dataset for different conditions."
+          "Designed and built an end-to-end real-time intrusion-detection and alert system (YOLOv8 + ByteTrack) for CCTV footage.",
+          "Trained a custom YOLOv8 Nano model on a 6,300-image CCTV dataset, achieving 92.8% mAP50, 91.8% precision, and 85.6% recall at 640x640 resolution on cloud GPU; optimized inference to 8.73 FPS on CPU-only hardware for real-time edge deployment.",
+          "Benchmarked against a custom-trained RT-DETR Large (transformer) model (86.3% mAP50, 0.70 FPS locally), analyzing the speed/accuracy trade-off to justify the deployment model choice",
+          "Engineered zone-based intrusion analytics with zero double-counting and exclusion-zone masking to eliminate false positives from static infrastructure."
         ],
         details: "Researched and applied modern deep learning frameworks, utilizing custom datasets to train object detection models capable of functioning in low-quality CCTV environments. Working on this project strengthened my understanding of AI model optimization, spatial tracking algorithms, and the integration of these tools into functional software architectures. The experience offered valuable insights into how enterprise-grade monitoring systems are designed and deployed. The technical mentorship and exposure to practical problem-solving such as handling hardware constraints and mitigating false positives helped bridge the gap between academic knowledge and real-world engineering."
       }
@@ -67,20 +66,16 @@ const experienceData = [
         title: "Google Student Ambassador",
         organization: "Christ University (Kengeri Campus)",
         bullets: [
-          "Selected as one of an exclusive cohort nationwide to represent Google’s AI ecosystem and emerging technologies.",
-          "Act as the primary technical liaison between Google and the student body, driving education and adoption of cutting-edge AI and developer tools.",
-          "Leverage both my AI knowledge and creative design skills to communicate complex technical concepts, organize community initiatives, and foster a culture of innovation on campus."
+          "Selected as part of an exclusive nationwide cohort to represent Google's AI ecosystem and emerging technologies",
+          "Serve as primary technical liaison between Google and the student body, driving education and adoption of AI and developer tools"
         ]
       },
       {
         title: "Campus Mantri",
         organization: "GeeksforGeeks",
-        description: "Official GeeksforGeeks Campus Mantri, serving as the primary liaison between the platform and the student community. Selected for this six-month leadership role to foster a tech-driven learning environment on campus.",
         bullets: [
-          "Act as the central point of contact between GeeksforGeeks and the student body.",
-          "Organize and execute campus-level technical events, workshops, and coding activities.",
-          "Spearhead the promotion of GeeksforGeeks initiatives and educational platforms.",
-          "Serve as a brand ambassador to drive student engagement and build a strong coding community."
+          "Official Campus Mantri, serving as primary liaison between GeeksforGeeks and the student community",
+          "Organize and execute campus-level technical events, workshops, and coding activities and upskilling programs"
         ]
       }
     ]
@@ -94,20 +89,16 @@ const experienceData = [
         title: "Head of Media",
         organization: "Department of AI & Data Science Engineering",
         bullets: [
-          "Graphic designer for 2026 IEEE International Conference on Contemporary Computing and Communications (InC4 2026).",
-          "Editor of Newsletter: Neuralnexus Volume 1 (2 Issues).",
-          "Led a team of media volunteers to cover media for all department events.",
-          "Worked actively as a graphic designer.",
-          "Led operations in videography and photography, promotions, documentation and planning, pre-event procedures and also in team management and work delegation."
+          "Head of Media for Department of AI and Data Science Engineering (2025-2027)",
+          "Specialized Graphic Designer for: 2026 IEEE International Conference on Contemporary Computing and Communications (InC4 2026)"
         ]
       },
       {
         title: "Graphic Designer",
-        organization: "C.A.S.H (Christites Association of Sciences and Humanities)",
+        organization: "Christites Association of Sciences and Humanities (C.A.S.H)",
         bullets: [
-          "Graphic designer for 39th Annual Conference of Ramanujan Mathematical Society (2024).",
-          "Led visual direction for event branding and promotional materials. Designed digital and print assets for campus-wide events, ensuring a cohesive branding and engaging visual identity.",
-          "Collaborated with promotions and events teams to enhance student outreach and engagement."
+          "Graphic Designer for Christites Association of Sciences and Humanities (2024-2025)",
+          "Specialized Graphic Designer for: 39th Annual Conference of Ramanujan Mathematical Society (2024)"
         ]
       }
     ]

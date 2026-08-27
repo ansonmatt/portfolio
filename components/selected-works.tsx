@@ -22,7 +22,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: 'Advanced Driving Assistance System',
+    name: 'Advanced AI Driving Assistant',
     year: '2026',
     image: '/adas-system.png',
     url: 'https://github.com/ansonmatt/advanced-driving-assistant',
@@ -48,7 +48,7 @@ const projects: Project[] = [
     titleSide: 'right',
   },
   {
-    name: 'AI Medication Manager',
+    name: 'AI Medication and Prescription Manager',
     year: '2026',
     image: '/medication-adherence-dark.png',
     url: 'https://github.com/alv1n25/Grassroots-Hackathon-Dr.Nudge',
